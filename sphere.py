@@ -9,15 +9,16 @@ def sample_spherical(npoints, ndim=3):
     return vec
 
 
-if __name__ == "main":
+if __name__ == '__main__':
 	phi = np.linspace(0, np.pi, 20)
 	theta = np.linspace(0, 2 * np.pi, 40)
 	x = np.outer(np.sin(theta), np.cos(phi))
 	y = np.outer(np.sin(theta), np.sin(phi))
 	z = np.outer(np.cos(theta), np.ones_like(phi))
 
-	xi, yi, zi = sample_spherical(100)
+	xi, yi, zi = sample_spherical(1000)
 
 	fig, ax = plt.subplots(1, 1, subplot_kw={'projection':'3d', 'aspect':'equal'})
 	ax.plot_wireframe(x, y, z, color='k', rstride=1, cstride=1)
-	ax.scatter(xi, yi, zi, s=100, c='r', zorder=10)
+	ax.scatter(xi, yi, zi, s=10, c='r', zorder=10)
+	plt.show()
