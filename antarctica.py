@@ -11,10 +11,14 @@ def antarctica_bound(num):
 
 if __name__ == '__main__':
 
-	xi, yi, zi = sample_spherical(1000)
+	avg = []
 
-	print(len(zi))
+	for i in range(10):
+		xi, yi, zi = sample_spherical(10)
 
-	total_zi = [x for x in zi if antarctica_bound(x)]
+		total_zi = [x for x in zi if antarctica_bound(x)]
 
-	print(len(total_zi))
+		avg.append(len(total_zi))
+		print(len(total_zi))
+
+	print("Average: " + sum(avg)/len(avg))
