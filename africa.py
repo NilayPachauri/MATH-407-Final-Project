@@ -7,7 +7,7 @@ def sample_spherical(npoints, ndim=3):
     return vec
 
 # latitude of Antarctica
-def antarctica_bound(num):
+def africa_bound(num):
 	return num < -(82.8628/90) and num > -1
 
 if __name__ == '__main__':
@@ -18,7 +18,11 @@ if __name__ == '__main__':
 	for i in range(10):
 		xi, yi, zi = sample_spherical(points)
 
-		total_zi = [x for x in zi if antarctica_bound(x)]
+		coords = [xi, yi, zi]
+
+		print(coords)
+
+		total_zi = [x for x in zi if africa_bound(x)]
 
 		avg.append(len(total_zi))
 		print(str(len(total_zi)) + "/" + str(points) + " = " + str(len(total_zi)/points))
