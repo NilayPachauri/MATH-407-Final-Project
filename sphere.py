@@ -8,9 +8,6 @@ def sample_spherical(npoints, ndim=3):
     vec /= np.linalg.norm(vec, axis=0)
     return vec
 
-def antarctica_bound(num):
-	return num < -(82.8628/90) and num > -1
-
 if __name__ == '__main__':
 	phi = np.linspace(0, np.pi, 20)
 	theta = np.linspace(0, 2 * np.pi, 40)
@@ -25,13 +22,7 @@ if __name__ == '__main__':
 	ax.set_xlabel('X axis')
 	ax.set_ylabel('Y axis')
 	ax.set_zlabel('Z axis')
-	ax.text2D(0.05, 0.95, "10 Points", transform=ax.transAxes)
-
-	print(len(zi))
-
-	total_zi = [x for x in zi if antarctica_bound(x)]
-
-	print(len(total_zi))
+	ax.text2D(0.05, 0.95, "1,000 Points", transform=ax.transAxes)
 
 	ax.scatter(xi, yi, zi, s=10, c='r', zorder=10)
 	plt.show()
