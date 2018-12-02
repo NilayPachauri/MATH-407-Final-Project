@@ -16,7 +16,7 @@ if __name__ == '__main__':
 	y = np.outer(np.sin(theta), np.sin(phi))
 	z = np.outer(np.cos(theta), np.ones_like(phi))
 
-	xi, yi, zi = sample_spherical(sys.argv[1])
+	xi, yi, zi = sample_spherical(int(sys.argv[1]))
 
 	fig, ax = plt.subplots(1, 1, subplot_kw={'projection':'3d', 'aspect':'equal'})
 	ax.plot_wireframe(x, y, z, color='k', rstride=1, cstride=1)
